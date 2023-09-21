@@ -20,6 +20,8 @@
 const server = require('./src/app.js');
 const { conn, Temperaments } = require('./src/db.js');
 const DBTemps = require('./src/Controlers/postTemperaments.js')
+const port = process.env.PORT || 3001;
+
 
 // Syncing all the models at once.
 conn.sync({ force: true }).then(() => {
@@ -29,6 +31,6 @@ conn.sync({ force: true }).then(() => {
       DBTemps()
       console.log("DB Temperaments");
     }
-    console.log('%s listening at 3001'); // eslint-disable-line no-console
+    console.log('%s listening at '+ port); // eslint-disable-line no-console
   });
 });
